@@ -31,9 +31,9 @@
 
 ---
 
-### BackEnd Fake
+### Banco de dados Fake
 
->BackEnd Fake no rquivo db.json.
+>Banco de dados Fake com o arquivo db.json.
 >
 - **db.json**
 
