@@ -1,0 +1,90 @@
+<body>
+  <div class="container">
+    <div class="row">
+      <h3 class="">Livros novos e usados</h3>
+
+      <!-- <div class="col"> -->
+      <div class="card">
+        <form class="form">
+          <div class="mb-4">
+            <label for="nome" class="form-label">Nome</label>
+
+            <input
+              [(ngModel)]="livro.nome"
+              type="text"
+              id="nome"
+              class="form-control"
+              name="nome"
+              placeholder="Digite o Nome do Livro"
+            />
+          </div>
+
+          <div class="mb-4">
+            <label for="conta" class="form-label">Autor</label>
+
+            <input
+              [(ngModel)]="livro.autor"
+              type="text"
+              id="conta"
+              class="form-control"
+              name="conta"
+              placeholder="Digite o Nome do Autor"
+            />
+          </div>
+
+          <div class="mb-5">
+            <label for="foto" class="form-label">Capa do Livro</label>
+
+            <input
+              [(ngModel)]="livro.foto"
+              type="url"
+              id="foto"
+              class="form-control"
+              name="foto"
+              placeholder="Link da imagem do livro"
+            />
+          </div>
+
+          <!-- <input type="number" [(ngModel)]="livro.id" name="id"> -->
+
+          <div class="my-3" *ngIf="livro.id === undefined">
+            <!-- Adicionando a função adicionar ao click do botão -->
+            <button (click)="mostrarModal()" class="btn btn-success">
+              Adicionar
+            </button>
+          </div>
+
+          <div class="my-3" *ngIf="livro.id !== undefined">
+            <!-- Adicionando a função adicionar ao click do botão -->
+            <button (click)="editar()" class="btn btn-success">
+              Salvar
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  <!-- </div> -->
+</body>
+
+<!-- MODAL -->
+<div *ngIf="isModal" id="modal">
+
+  <div class="minhaModal">
+    <div class="tituloModal">
+      <h5 class="text-center">Cadastrar Livro</h5>
+    </div>
+    <h6 class="my-3 text-center">Tem certeza que deseja cadastrar esse livro!?</h6>
+
+    <button class="btn btn-outline-secondary mx-2" (click)="cancelarAcao()">
+      Cancelar
+    </button>
+
+    <button class="btn btn-outline-danger mx-2" (click)="adicionar()">
+      Cadastrar
+    </button>
+  </div>
+
+    <div class="overlay" (click)="cancelarAcao()"></div>
+
+</div>
